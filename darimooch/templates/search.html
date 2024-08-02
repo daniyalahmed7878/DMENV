@@ -1,0 +1,58 @@
+{% load static %}
+
+{% include 'header.html' %}
+
+
+<main>
+    <h2>Search results</h2>
+    <h2 style="text-align: center;"></h2>
+    <div class="main-content">
+    <div class="row" >
+     {% for product in products %}
+     {% if product.category == 'Ice Blast' %}
+      <div class="col-3">
+        <div class="card" style="width: 18rem;">
+         <img src="/media/{{product.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+           <h5 class="card-title">{{product.title}}</h5>
+           <p class="card-text">PKR.{{product.price}}</p>
+             <!-- <p class="card-text">{{product.description}}</p> -->
+              <a href="{% url 'products' product.id %}" class="btn btn-primary">Detail - {{product.id}}</a>
+                </div>
+                 </div>
+                   </div> 
+                   {% endif %}
+                    {% endfor %}
+                     </div> 
+                     </div>
+        <h2 style="text-align: center;"></h2>
+        <div class="main-content">
+          <div class="row" >
+           {% for product in products %}
+           {% if product.category == 'Face' %}
+            <div class="col-3">
+              <div class="card" style="width: 18rem;">
+               <img src="/media/{{product.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                 <h5 class="card-title">{{product.title}}</h5>
+                 <p class="card-text">PKR.{{product.price}}</p>
+                   <!-- <p class="card-text">{{product.description}}</p> -->
+                   <a href="{% url 'products' product.id %}" class="btn btn-primary">Detail - {{product.id}}</a>
+                      </div>
+                       </div>
+                         </div> 
+                          {% endif %}
+                          {% endfor %}
+                           </div> 
+                           </div>             
+  </main>
+
+
+
+
+
+
+
+
+
+{% include 'footer.html' %}

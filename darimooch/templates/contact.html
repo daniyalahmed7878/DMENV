@@ -1,0 +1,35 @@
+{% load static %}
+
+
+{% include 'header.html' %}
+
+
+
+
+<div class="d-flex justify-content-center py-5">
+<form method="post" action="{% url 'save-contact' %}" class="row g-3 w-50">
+  {% csrf_token %}
+    <div class="col-md-6">
+      <label for="Fullname" class="form-label">enter name</label>
+      <input type="text" name="fullname" class="form-control" id="Fullname" value="{{request.POST.fullname}}">
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="text" name="email" class="form-control" id="email" value="{{request.POST.email}}">
+    </div>
+    <div class="col-12">
+      <label for="phone" class="form-label">Phone NO</label>
+      <input type="text" name="phone" class="form-control" id="phone" placeholder="03x xxxxxxxx" value="{{request.POST.phone}}">
+    </div>
+    <div class="col-12">
+      <label for="message" class="form-label">Message</label>
+      <textarea class="form-control" rows="6" name="message" value="{{request.POST.email}}"></textarea>
+    </div>
+ 
+   
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+  </form>
+</div>
+{% include 'footer.html' %}
